@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/img/images/favicon.ico">
+    <!-- Mobile Web-app fullscreen -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Meta tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+
+    <!--Title-->
+    <title>Информация про FitnessPoint</title>
+
+    <!--CSS bundle -->
+    <link rel="stylesheet" media="all" href="static/style/bootstrap.css" />
+    <link rel="stylesheet" media="all" href="static/style/animate.css" />
+    <link rel="stylesheet" media="all" href="static/style/font-awesome.css" />
+    <link rel="stylesheet" media="all" href="static/style/ion-range-slider.css" />
+    <link rel="stylesheet" media="all" href="static/style/linear-icons.css" />
+    <link rel="stylesheet" media="all" href="static/style/magnific-popup.css" />
+    <link rel="stylesheet" media="all" href="static/style/owl.carousel.css" />
+    <link rel="stylesheet" media="all" href="static/style/theme.css" />
+
+    
+
+    <!--Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=latin-ext" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+
+    <div class="wrapper">
+
+        <!-- ======================== Navigation ======================== -->
+
+        <nav>
+
+            <div class="container">
+
+                <a href="/index" class="logo"><img src="/static/img/images/ava.jpg" alt=""  width="130" height="55"/></a>
+
+                <!-- ==========  Top navigation ========== -->
+
+                <div class="navigation navigation-top clearfix">
+                    <ul>
+                        <!--add active class for current page-->
+                        <li class="left-side"><a href="/index" class="logo-icon"><img src="/static/img/images/ava.jpg" alt="Alternate Text" width="150" height="34"/></a></li>
+                        {% if current_user.is_authenticated %}
+                            <li>
+                                <a class="open-login" href="/lich"><i class="icon icon-user"></i>{{ current_user.name }}</a>
+                                <div class="btn-group">
+                                    <div class="dropdown-menu"></div>
+                                    <button class="dropdown-item" type="button"><a href="/logout">Выйти</a></button>
+                                </div>
+                            </li>
+
+                        {% else %}
+                            <li><a href="/login" class="open-login"><i class="icon icon-user"></i></a></li>
+                        {% endif %}
+
+                        <li><a href="javascript:void(0);" class="open-search"><i class="icon icon-magnifier"></i></a></li>
+                    </ul>
+                </div>
+
+                <!-- ==========  Main navigation ========== -->
+
+                <div class="navigation navigation-main">
+                    <a href="/lk" class="open-login"><i class="icon icon-user"></i></a>
+                    <a href="#" class="open-search"><i class="icon icon-magnifier"></i></a>
+                    <a href="#" class="open-menu"><i class="icon icon-menu"></i></a>
+                    <div class="floating-menu">
+                        <!--mobile toggle menu trigger-->
+                        <div class="close-menu-wrapper">
+                            <span class="close-menu"><i class="icon icon-cross"></i></span>
+                        </div>
+                        <ul>
+                            <li>
+                                <a href="/index">Главная <span class="open-dropdown"></span></a>
+                            </li>
+                            <li>
+                                <a href="/about">О нас<span class="open-dropdown"></span></a>
+                            <li>
+                                
+                            </li>
+
+                            
+                            
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- ==========  Search wrapper ========== -->
+
+                <div class="search-wrapper">
+                    <input class="form-control" placeholder="Найти" />
+                    <button class="btn btn-outline-dark btn-sm">Искать</button>
+                </div>
+
+
+
+
+        </nav>
+
+        <!-- ========================  Header content ======================== -->
+
+        <p class="text-about">
+            <strong>Fitness Point</strong> - онлайн платформа для тех кто хочет заняться собой и своим здоровьем, не выходя из дома 
+            Наши профессиональные тренера не только ведут обучение с «нуля» для всех желающих, а также проводят тренинги и семинары для повышения квалификации специалистов всех направлений в области фитнеса.  
+            Наши курсы включают в себя набор тренировок для разных групп мышц, как для мужчин, так и для женщин.
+        </p>
+        
+    <div class="image-logotip" >
+        <img src="/static/img/images/logotip.png" height="300px" width="300px"/>
+    </div>
+
+        <ul class="creators">
+            <strong>Создатели проекта:</strong>
+            <li>Ерамасов Данил (danil.eramasov@mail.ru)</li>
+            <li>Харитонов Егор (egor.kharitonov@mail.ru)</li>
+            <li>Сухоруков Илья (suhorukov.ilya@mail.ru)</li>
+            <li>Батталов Амир (battalov.amir@mail.ru)</li>
+            <li>Смагин Севастьян (seva-betxoven@mail.ru)</li>
+           </ul>
+
+
+        <section class="team">
+
+            <!--Header-->
+
+            <header>
+                <div class="container">
+                    <h1 class="h2-title">Наши тренера:</h1>
+                    <div class="texttt">
+                        <p><strong>Наши преподаватели </strong>- квалифицированые преподаватели из ведущих фитнес-центров Казани. С каждым преподавателем можно связаться по контактным данным, указанным в информации о курсе.
+                        На протяжении всего курса вас будут сопровождать куратор и фитнесс-тренер. Куратор будет заниматься всеми
+                    организационными моментами. Фитнесс-тренера же будут составлять план тренировок, отвечать на ваши вопросы и просто обеспечивать вас хорошим настроением и крепким здоровьем.</p>
+                    </div>
+                </div>
+            </header>
+
+            <!--Content-->
+
+            <div class="container">
+
+                <div class="row">
+
+                    <!--Team member-->
+
+                    <div class="col-md-3" data-3d>
+                        <article>
+                            <div class="details details-text">
+                                <div class="inner">
+                                    <h5 class="title">Александр Волков</h5>
+                                    <h6 class="title">Главный куратор</h6>
+                                </div>
+                            </div>
+                            <div class="image">
+                                <img src="/static/img/images/kurator.jpg" alt="" />
+                            </div>
+                            <div class="details details-social">
+                                <div class="inner">
+                                    <a href="#"><i class="fa fa-phone"></i></a>
+                                    <a href="#"><i class="fa fa-envelope"></i></a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!--Team member-->
+
+                    <div class="col-md-3" data-3d>
+                        <article>
+                            <div class="details details-text">
+                                <div class="inner">
+                                    <h5 class="title">Михаил Лопутин</h5>
+                                    <h6 class="title">Фитнес-тренер</h6>
+                                </div>
+                            </div>
+                            <div class="image">
+                                <img src="/static/img/images/maan.jpg" alt="" />
+                            </div>
+                            <div class="details details-social">
+                                <div class="inner">
+                                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!--Team member-->
+
+                    <div class="col-md-3" data-3d>
+                        <article>
+                            <div class="details details-text">
+                                <div class="inner">
+                                    <h5 class="title">Жанна Киселёва</h5>
+                                    <h6 class="title">Преподаватель йоги</h6>
+                                </div>
+                            </div>
+                            <div class="image">
+                                <img src="/static/img/images/TrenerDev.jpg" alt="" />
+                            </div>
+                            <div class="details details-social">
+                                <div class="inner">
+                                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!--Team member-->
+
+                    <div class="col-md-3" data-3d>
+                        <article>
+                            <div class="details details-text">
+                                <div class="inner">
+                                    <h5 class="title">Юлия Акарова</h5>
+                                    <h6 class="title">Тренер по нагрузкам</h6>
+                                </div>
+                            </div>
+                            <div class="image">
+                                <img src="/static/img/images/TrenerDev2.jpg" alt="" />
+                            </div>
+                            <div class="details details-social">
+                                <div class="inner">
+                                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                </div> <!--/row-->
+
+            </div>
+
+        </section>
+
+        <!-- ================== Footer  ================== -->
+
+        <footer>
+
+            <div class="container-fluid">
+
+                <div class="footer-wrap">
+
+                    <div class="container">
+
+                        <!--footer showroom-->
+                        <div class="footer-showroom">
+                            <div class="text-center">
+                                <a href="/"><img src="/static/img/images/llogo.png" alt="" width=125px height=30px /></a>
+                            </div>
+                        </div>
+
+                        <!--footer links-->
+                        <div class="footer-links">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <h5>Направления</h5>
+                                    <ul>
+                                        <li><a href="#">Стретч</a></li>
+                                        <li><a href="#">Функционал</a></li>
+                                        <li><a href="#">Силовые</a></li>
+                                        <li><a href="#">Йога</a></li>
+                                        <li><a href="#">Танцы</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-2">
+                                    <h5>Быстрые ссылки</h5>
+                                    <ul>
+                                        <li><a href="#">История покупок</a></li>
+                                        <li><a href="#">Подарочные карты</a></li>
+                                        <li><a href="#">Возврат средств</a></li>
+                                        <li><a href="#">Магазин</a></li>
+                                        <li><a href="#">FAQ</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-2">
+                                    <h5>О нас</h5>
+                                    <ul>
+                                        <li><a href="#">Тренерский состав</a></li>
+                                        <li><a href="#">Платежная информация</a></li>
+                                        <li><a href="#">Юридическая информация</a></li>
+                                    </ul>
+                                </div>
+                                <div class="offset-md-3 col-md-3">
+                                    <h5>Подпишись для получения свежей информации</h5>
+                                    <p><i>Напиши свой адрес электронной почты чтобы получать свежие новости и скидки на новые курсы</i></p>
+                                    <div class="form-group form-newsletter">
+                                        <input class="form-control" type="text" name="email" value="" placeholder="E-mail" />
+                                        <input type="submit" class="btn btn-secondary btn-sm" value="Подписаться" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--footer social-->
+
+                        <div class="footer-social">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <a href="#">Политика конфиденциальности</a>
+                                </div>
+                                <div class="col-sm-6 links">
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </footer>
+
+
+    </div> <!--/wrapper-->
+    
+    <!--Scripts -->
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/js/bootstrap.js"></script>
+    <script src="static/js/ion.rangeSlider.js"></script>
+    <script src="static/js/magnific-popup.js"></script>
+    <script src="static/js/owl.carousel.js"></script>
+    <script src="static/js/tilt.jquery.js"></script>
+    <script src="static/js/jquery.easypiechart.js"></script>
+    <script src="static/js/bigtext.js"></script>
+    <script src="static/js/main.js"></script>
+</body>
+
+</html>

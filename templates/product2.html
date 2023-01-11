@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/img/images/favicon.ico">
+    <!-- Mobile Web-app fullscreen -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Meta tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+
+    <!--Title-->
+    <title>Курс Каменный пресс</title>
+
+    <!--CSS bundle -->
+    <link rel="stylesheet" media="all" href="static/style/bootstrap.css" />
+    <link rel="stylesheet" media="all" href="static/style/animate.css" />
+    <link rel="stylesheet" media="all" href="static/style/font-awesome.css" />
+    <link rel="stylesheet" media="all" href="static/style/ion-range-slider.css" />
+    <link rel="stylesheet" media="all" href="static/style/linear-icons.css" />
+    <link rel="stylesheet" media="all" href="static/style/magnific-popup.css" />
+    <link rel="stylesheet" media="all" href="static/style/owl.carousel.css" />
+    <link rel="stylesheet" media="all" href="static/style/theme.css" />
+
+    
+
+    <!--Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=latin-ext" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <div class="page-loader">
+        <div class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+
+    <div class="wrapper">
+
+        <!-- ======================== Navigation ======================== -->
+
+        <nav>
+
+            <div class="container">
+
+                <a href="/index" class="logo"><img src="/static/img/images/llogo.png" alt=""/></a>
+
+                <!-- ==========  Top navigation ========== -->
+
+                <div class="navigation navigation-top clearfix">
+                    <ul>
+                        <!--add active class for current page-->
+                        <li class="left-side"><a href="/" class="logo-icon"><img src="/static/img/images/ava.jpg" alt="Alternate Text" width="150" height="34"/></a></li>
+                        {% if current_user.is_authenticated %}
+                            <li>
+                                <a class="open-login" href="/lich"><i class="icon icon-user"></i>{{ current_user.name }}</a>
+                                <div class="btn-group">
+                                    <div class="dropdown-menu"></div>
+                                    <button class="dropdown-item" type="button"><a href="/logout">Выйти</a></button>
+                                </div>
+                            </li>
+
+                        {% else %}
+                            <li><a href="/login" class="open-login"><i class="icon icon-user"></i></a></li>
+                        {% endif %}
+
+                        <li><a href="javascript:void(0);" class="open-search"><i class="icon icon-magnifier"></i></a></li>
+                    </ul>
+                </div>
+
+                <!-- ==========  Main navigation ========== -->
+
+                <div class="navigation navigation-main">
+                    <a href="/lich" class="open-login"><i class="icon icon-user"></i></a>
+                    <a href="#" class="open-search"><i class="icon icon-magnifier"></i></a>
+                    <a href="#" class="open-menu"><i class="icon icon-menu"></i></a>
+
+                    <div class="floating-menu">
+                        <!--mobile toggle menu trigger-->
+                        <div class="close-menu-wrapper">
+                            <span class="close-menu"><i class="icon icon-cross"></i></span>
+                        </div>
+                        <ul>
+                            <li>
+                                <a href="/index">Главная <span class="open-dropdown"></span></a>
+                            </li>
+                            <li>
+                                <a href="#courses">Курсы <span class="open-dropdown"></span></a>
+                            
+                            </li>
+                            <li>
+                                <a href="/about">О нас<span class="open-dropdown"></span></a>
+                            <li>
+                                
+                            </li>
+
+                            
+                            
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- ==========  Search wrapper ========== -->
+
+                <div class="search-wrapper">
+                    <input class="form-control" placeholder="Найти" />
+                    <button class="btn btn-outline-dark btn-sm">Искать</button>
+                </div>
+
+
+                <!-- ==========  Cart wrapper ========== -->
+
+                <div class="cart-wrapper">
+                    <div class="checkout">
+                        <div class="clearfix">
+
+                            <!--cart item-->
+
+                            <div class="row">
+
+                                <div class="cart-block cart-block-item clearfix">
+                                    <div class="image">
+                                        <a href="/product"><img src="assets/images/item-1.jpg" alt="" /></a>
+                                    </div>
+                                    <div class="title">
+                                        <div><a href="/product">Product item</a></div>
+                                        <small>Product category</small>
+                                    </div>
+                                    <div class="quantity">
+                                        <input type="number" value="2" class="form-control form-quantity" />
+                                    </div>
+                                    <div class="price">
+                                        <span class="final">$ 1.998</span>
+                                        <span class="discount">$ 2.666</span>
+                                    </div>
+                                    <!--delete-this-item-->
+                                    <span class="icon icon-cross icon-delete"></span>
+                                </div>
+
+                                <!--cart item-->
+
+                                <div class="cart-block cart-block-item clearfix">
+                                    <div class="image">
+                                        <a href="/product"><img src="assets/images/item-2.jpg" alt="" /></a>
+                                    </div>
+                                    <div class="title">
+                                        <div><a href="/product">Product item</a></div>
+                                        <small>Product category</small>
+                                    </div>
+                                    <div class="quantity">
+                                        <input type="number" value="2" class="form-control form-quantity" />
+                                    </div>
+                                    <div class="price">
+                                        <span class="final">$ 1.998</span>
+                                        <span class="discount">$ 2.666</span>
+                                    </div>
+                                    <!--delete-this-item-->
+                                    <span class="icon icon-cross icon-delete"></span>
+                                </div>
+
+                                <!--cart item-->
+
+                                <div class="cart-block cart-block-item clearfix">
+                                    <div class="image">
+                                        <a href="product.html"><img src="assets/images/item-3.jpg" alt="" /></a>
+                                    </div>
+                                    <div class="title">
+                                        <div><a href="/product">Product item</a></div>
+                                        <small>Product category</small>
+                                    </div>
+                                    <div class="quantity">
+                                        <input type="number" value="2" class="form-control form-quantity" />
+                                    </div>
+                                    <div class="price">
+                                        <span class="final">$ 1.998</span>
+                                        <span class="discount">$ 2.666</span>
+                                    </div>
+                                    <!--delete-this-item-->
+                                    <span class="icon icon-cross icon-delete"></span>
+                                </div>
+
+                            </div>
+
+                            <hr />
+
+                            <!--cart prices -->
+
+                            <div class="clearfix">
+                                <div class="cart-block cart-block-footer clearfix">
+                                    <div>
+                                        <strong>Discount 15%</strong>
+                                    </div>
+                                    <div>
+                                        <span>$ 159,00</span>
+                                    </div>
+                                </div>
+
+                                <div class="cart-block cart-block-footer clearfix">
+                                    <div>
+                                        <strong>Shipping</strong>
+                                    </div>
+                                    <div>
+                                        <span>$ 30,00</span>
+                                    </div>
+                                </div>
+
+                                <div class="cart-block cart-block-footer clearfix">
+                                    <div>
+                                        <strong>VAT</strong>
+                                    </div>
+                                    <div>
+                                        <span>$ 59,00</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr />
+
+                            <!--cart final price -->
+
+                            <div class="clearfix">
+                                <div class="cart-block cart-block-footer clearfix">
+                                    <div>
+                                        <strong>Total</strong>
+                                    </div>
+                                    <div>
+                                        <div class="h4 title">$ 1259,00</div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <!--cart navigation -->
+
+                            <div class="cart-block-buttons clearfix">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <a href="products-grid.html" class="btn btn-outline-info">Continue shopping</a>
+                                    </div>
+                                    <div class="col-sm-6 text-right">
+                                        <a href="checkout-1.html" class="btn btn-outline-warning"><span class="icon icon-cart"></span> Checkout</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+
+        <!-- ======================== Products ======================== -->
+
+        <section class="product pt-0">
+
+            <header>
+                <div class="container">
+                    <h2 class="title" style="margin-top:20px;">Курс Каменный пресс</h2>
+                    <div class="text">
+                        <p>Курс для тех, кто хочет рельефный красивый пресс.</p>
+                    </div>
+                </div>
+            </header>
+
+            <div class="main">
+                <div class="container">
+                    <div class="row product-flex">
+
+                        <div class="col-lg-4 product-flex-info">
+                            <div class="clearfix">
+
+                                <div class="clearfix">
+
+                                    <!--price wrapper-->
+
+                                    <div class="price">
+                                        <span class="h3">
+                                            5590,00
+                                            <small>6990,00</small>
+                                        </span>
+                                    </div>
+
+                                    <hr />
+
+                                    <!--info-box-->
+
+                                    <div class="info-box">
+                                        <span><strong>Количество занятий</strong></span>
+                                        <span>30</span>
+                                    </div>
+
+                                 <hr />
+
+                                    
+                                   <div class="info-box">
+                                    <span><strong>Примерное время прохождения курса</strong></span>
+                                    <span>15 часов</span>
+                                </div>
+
+                                <hr />
+
+                                    
+
+                                
+
+                                    <div class="info-box">
+                                        <span>
+                                            <small>Научись на этом курсе выполнять правильную планку, правильно делать отжимания и все это с профессиональным тренером</small>
+                                        </span>
+                                    </div>
+
+                                    <hr />
+<div class="info-box info-box-addto added">
+                                        <span>
+                                            <i class="add"><i class="fa fa-heart-o"></i> Добавить в список желаний</i>
+                                            <i class="added"><i class="fa fa-heart"></i> Удалить из списка желаний</i>
+                                        </span>
+                                    </div>
+
+                                    <div class="info-box info-box-addto">
+                                        <span>
+                                            <i class="add"><i class="fa fa-eye-slash"></i> Добавить в список просмотренных курсов</i>
+                                            <i class="added"><i class="fa fa-eye"></i> Удалить из списка просмотренных курсов</i>
+                                        </span>
+                                    </div>
+
+                                    <div class="info-box info-box-addto">
+                                        <span>
+                                            <i class="add"><i class="fa fa-star-o"></i> Добавить в избранное</i>
+                                            <i class="added"><i class="fa fa-star"></i> Удалить из избранного</i>
+                                        </span>
+                                    </div>
+                                    <div class="zapisan2">
+                                 <a>Записаться на курс</a>
+                                    </div>
+
+                                </div> <!--/clearfix-->
+                            </div> <!--/product-info-wrapper-->
+                        </div> <!--/col-lg-4-->
+                        <!--product item gallery-->
+
+                        <div class="col-lg-8 product-flex-gallery">
+
+                            <!--product gallery-->
+
+                            <div class="owl-product-gallery owl-carousel owl-theme open-popup-gallery">
+                                <a href="/static/img/images/press.jpg"><img src="/static/img/images/press.jpg" alt="" /></a>
+                                <a href="/static/img/images/plechi.jpg.jpg"><img src="/static/img/images/plechi.jpg.jpg" alt="" /></a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!--=========================== Comments & rating ============================-->
+
+        <section class="product-details">
+
+            <div class="container">
+
+                <!--Tab links-->
+
+                <ul class="nav nav-pills nav-pills-flat justify-content-center" id="pills-tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="tab-review-tab" data-toggle="tab" role="tab">
+                            Отзывы
+                        </a>
+                    </li>
+                
+                </ul>
+
+                <!--Tab content-->
+
+                <div class="tab-content" id="pills-tabContent">
+
+                    <!--Tab description-->
+
+                    <div class="tab-pane fade show active" id="tab-review">
+
+                        <div class="col-md-8 offset-md-2">
+
+                            <!--Rating-->
+
+                            <div class="rating">
+
+                                <!--Rating overall====-->
+
+                                <div class="rating-overall">
+
+                                    <div class="rating-header">
+
+                                        <div class="row align-items-center">
+
+                                            <div class="col-2">
+                                                <div class="h1 m-0">4.8</div>
+                                            </div>
+
+                                            <div class="col-10">
+                                                <div class="h3 m-0">User rating overall</div>
+                                                <span>4.8 average based on 625 reviews</span>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="row align-items-center">
+
+                                        <div class="col-2">
+                                            <p>5 <i class="fa fa-star"></i></p>
+                                        </div>
+
+                                        <div class="col-10">
+                                            <div class="progress">
+                                                <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-2">
+                                            <p>4 <i class="fa fa-star"></i></p>
+                                        </div>
+
+                                        <div class="col-10">
+                                            <div class="progress">
+                                                <div class="progress-bar" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="85"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-2">
+                                            <p>3 <i class="fa fa-star"></i></p>
+                                        </div>
+
+                                        <div class="col-10">
+                                            <div class="progress">
+                                                <div class="progress-bar" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="30"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-2">
+                                            <p>2 <i class="fa fa-star"></i></p>
+                                        </div>
+
+                                        <div class="col-10">
+                                            <div class="progress">
+                                                <div class="progress-bar" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="20"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-2">
+                                            <p>1 <i class="fa fa-star"></i></p>
+                                        </div>
+
+                                        <div class="col-10">
+                                            <div class="progress">
+                                                <div class="progress-bar" role="progressbar" style="width: 15%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="15"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!--Comments-->
+
+                            <div class="comments">
+
+                                <div class="comment-header">
+                                    <div class="h3 m-0">Недавние комментарии</div>
+                                    <span>14 отзывов про данный курс</span>
+                                </div>
+
+
+                                <div class="comment-wrapper">
+
+                                    <!--Comment-->
+
+                                    <div class="comment-block">
+
+                                        <!--Comment user-->
+
+                                        <div class="comment-user">
+                                            <div>
+                                                <img src="/static/img/images/specs.png" alt="Alternate Text" width="70" />
+                                            </div>
+                                            <div>
+                                                <h5>
+                                                    <span>John Doe</span>
+                                                    <span class="pull-right">
+                                                        <i class="fa fa-star active"></i>
+                                                        <i class="fa fa-star active"></i>
+                                                        <i class="fa fa-star active"></i>
+                                                        <i class="fa fa-star active"></i>
+                                                        <i class="fa fa-star"></i>
+                                                    </span>
+                                                    <small>05.10.2022</small>
+                                                </h5>
+                                            </div>
+                                        </div>
+
+                                        <!--Comment description-->
+
+                                        <div class="comment-desc">
+                                            <p>
+                                                Добрый день! Курс очень впечатлил, всё очень понравилось, но вот программа порой казалась тяжеловатой, тренер объяснял, что надо сбавлять нагрузку, однако не говорил,как именно, а так курс очень полезный)
+                                            </p>
+                                        </div>
+
+                                        <!--Comment reply-->
+
+                                        <div class="comment-block">
+                                            <div class="comment-user">
+                                                <div>
+                                                    <img src="/static/img/images/specs.png" alt="Alternate Text" width="70" />
+                                                </div>
+                                                <div>
+                                                    <h5>
+                                                        Администратор(А.В.Волков)
+                                                        <small>06.10.2022</small>
+                                                    </h5>
+                                                </div>
+                                            </div>
+                                            <div class="comment-desc">
+                                                <p>
+                                                    Здравствуйте. Спасибо за ваш отзыв! Он очень важен для нас) Проблемы с подробным планом работы решена, Приносим Извинения. На вашу почту выслали промокод 10% на любую покупку.
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <!--/reply-->
+                                    </div>
+
+                                    <!--Comment-->
+
+                                    <div class="comment-block">
+
+                                        <!--Comment user-->
+
+                                        <div class="comment-user">
+                                            <div>
+                                                <img src="/static/img/images/specs.png" alt="Alternate Text" width="70" />
+                                            </div>
+                                            <div>
+                                                <h5>
+                                                    <span>Римма Биктагирова</span>
+                                                    <span class="pull-right">
+                                                        <i class="fa fa-star active"></i>
+                                                        <i class="fa fa-star active"></i>
+                                                        <i class="fa fa-star active"></i>
+                                                        <i class="fa fa-star active"></i>
+                                                        <i class="fa fa-star active"></i>
+                                                    </span>
+                                                    <small>03.10.2022</small>
+                                                </h5>
+                                            </div>
+                                        </div>
+
+                                        <!--Comment description-->
+
+                                        <div class="comment-desc">
+                                            <p>
+                                                Здравствуйте. Очень понравился курс. Занимался сын 3 месяца. Изменился до неузнаваемости. Очень круто, скоро купим еще один курс)
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                </div><!--/comment-wrapper-->
+
+                                <div class="comment-header text-center">
+                                    <a href="#" class="btn btn-main">12 comments</a>
+                                </div>
+
+                                <!--Add new comment-->
+
+                                 <div class="comment-desc">
+                                            <p>
+                                                Добрый день. Курс очень хороший, но программа довольно монотонная и порой скучноватая, однако курс очень хорошо подготовленный и я его советую!
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                </div><!--/comment-wrapper-->
+
+                                <div class="comment-header text-center">
+                                    <a href="#" class="btn btn-main">12 комментариев</a>
+                                </div>
+
+                                <!--Add new comment-->
+
+                                <div class="comment-add">
+
+                                    <div class="comment-reply-message">
+                                        <div class="h3 title">Оставьте ваш отзыв! </div>
+                                        <p>Ваш адрес электронной почты не будет опубликован.</p>
+                                    </div>
+
+                                    <form action="#" method="post">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" name="name" value="" placeholder="Ваше имя" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" name="name" value="" placeholder="Ваша электронная почта" />
+                                        </div>
+                                        <div class="form-group">
+                                            <textarea rows="10" class="form-control" placeholder="Ваш комментарий"></textarea>
+                                        </div>
+                                        <div class="clearfix text-center">
+                                            <a href="#" class="btn btn-main">Отправить комментарий</a>
+                                        </div>
+                                    </form>
+
+                                </div><!--/comment-add-->
+
+                            </div> <!--/comments-->
+
+                        </div> <!--/col-md-8-->
+
+                    </div> <!--/tab-pane -->
+                    <!--Tab specification-->
+
+                    <div class="tab-pane fade" id="tab-desc">
+
+                        <div class="col-md-8 offset-md-2">
+
+                            <div>
+                                <div class="h3 m-0">Product specification</div>
+                                <span>Additional information</span>
+                            </div>
+
+                            <hr />
+
+                            <div class="row">
+                                <div class="col-6">
+                                    <img class="img-fluid" src="/static/img/images/specs.png" alt="Alternate Text" width="350" />
+
+                                </div>
+                                <div class="col-6">
+                                    <img class="img-fluid" src="/static/img/images/specs.png" alt="Alternate Text" width="350" />
+
+                                </div>
+
+                            </div> <!--/row-->
+
+                        </div> <!--/col-md-8-->
+
+                    </div> <!--/tab-pane -->
+                    <!--Tab review-->
+
+                    <div class="tab-pane fade" id="tab-shipping">
+
+                        <div class="col-md-8 offset-md-2">
+
+                            <div>
+                                <div class="h3 m-0">Shipping information</div>
+                                <span>Additional information</span>
+                            </div>
+
+                            <hr />
+
+                            <h5>Money Back Guarantee</h5>
+                            <p>
+                                Our Money Back Guarantee applies to virtually everything on our site, and
+                                there's no extra fee for coverage. It’s automatic and covers your purchase price plus
+                                original shipping on eligible purchases*. Follow these steps to get your refund.
+                            </p>
+
+                            <h5>Need to Return an Item?</h5>
+
+                            <p>
+                                Whatever you’re looking for, millions of items on our store are returnable. Before you
+                                buy an item, check the seller’s return policy, then follow these easy steps to
+                                make a return. If the item you received doesn't match the description in the
+                                original listing, or if it arrived faulty or damaged,
+                            </p>
+
+                            <h5>Check an open return request</h5>
+
+                            <p>
+                                You can keep an eye on the progress of your return request by selecting Check your
+                                return status below, or in your Purchase history.
+                            </p>
+
+                            <h5>Send the item back</h5>
+
+                            <p>
+                                You'll need to send it back within 5 business days. Who covers the shipping costs
+                                depends on why you're returning it. Find more information about return shipping.
+
+                                When you send your item back we recommend using tracked shipping. Adding tracking
+                                details to your return helps protect against delays or issues in the refund process.
+                            </p>
+                        </div> <!--/col-md-8-->
+
+
+                    </div>  <!--/tab-pane -->
+
+                </div> <!--/tab-content -->
+            </div>
+
+        </section>
+
+       
+       
+         <!-- ================== Footer  ================== -->
+
+         <footer>
+
+            <div class="container-fluid">
+
+                <div class="footer-wrap">
+
+                    <div class="container">
+
+                        <!--footer showroom-->
+                        <div class="footer-showroom">
+                            <div class="text-center">
+                                <a href="/"><img src="/static/img/images/llogo.png" alt="" width=125px height=30px /></a>
+                            </div>
+                        </div>
+
+                        <!--footer links-->
+                        <div class="footer-links">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <h5>Направления</h5>
+                                    <ul>
+                                        <li><a href="#">Стретч</a></li>
+                                        <li><a href="#">Функционал</a></li>
+                                        <li><a href="#">Силовые</a></li>
+                                        <li><a href="#">Йога</a></li>
+                                        <li><a href="#">Танцы</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-2">
+                                    <h5>Быстрые ссылки</h5>
+                                    <ul>
+                                        <li><a href="#">История покупок</a></li>
+                                        <li><a href="#">Подарочные карты</a></li>
+                                        <li><a href="#">Возврат средств</a></li>
+                                        <li><a href="#">Магазин</a></li>
+                                        <li><a href="#">FAQ</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-2">
+                                    <h5>О нас</h5>
+                                    <ul>
+                                        <li><a href="#">Тренерский состав</a></li>
+                                        <li><a href="#">Платежная информация</a></li>
+                                        <li><a href="#">Юридическая информация</a></li>
+                                    </ul>
+                                </div>
+                                <div class="offset-md-3 col-md-3">
+                                    <h5>Подпишись для получения свежей информации</h5>
+                                    <p><i>Напиши свой адрес электронной почты чтобы получать свежие новости и скидки на новые курсы</i></p>
+                                    <div class="form-group form-newsletter">
+                                        <input class="form-control" type="text" name="email" value="" placeholder="E-mail" />
+                                        <input type="submit" class="btn btn-secondary btn-sm" value="Подписаться" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--footer social-->
+
+                        <div class="footer-social">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <a href="#">Политика конфиденциальности</a>
+                                </div>
+                                <div class="col-sm-6 links">
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </footer>
+
+
+    </div> <!--/wrapper-->
+    
+    <!--Scripts -->
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/js/bootstrap.js"></script>
+    <script src="static/js/ion.rangeSlider.js"></script>
+    <script src="static/js/magnific-popup.js"></script>
+    <script src="static/js/owl.carousel.js"></script>
+    <script src="static/js/tilt.jquery.js"></script>
+    <script src="static/js/jquery.easypiechart.js"></script>
+    <script src="static/js/bigtext.js"></script>
+    <script src="static/js/main.js"></script>
+</body>
+
+</html>

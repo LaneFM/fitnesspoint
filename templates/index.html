@@ -1,0 +1,891 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/img/images/favicon.ico">
+    <!-- Mobile Web-app fullscreen -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Meta tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+
+    <!--Title-->
+    <title>Fitness Point - Спортивные онлайн курсы</title>
+
+    <!--CSS bundle -->
+    <link rel="stylesheet" media="all" href="static/style/bootstrap.css" />
+    <link rel="stylesheet" media="all" href="static/style/animate.css" />
+    <link rel="stylesheet" media="all" href="static/style/font-awesome.css" />
+    <link rel="stylesheet" media="all" href="static/style/ion-range-slider.css" />
+    <link rel="stylesheet" media="all" href="static/style/linear-icons.css" />
+    <link rel="stylesheet" media="all" href="static/style/magnific-popup.css" />
+    <link rel="stylesheet" media="all" href="static/style/owl.carousel.css" />
+    <link rel="stylesheet" media="all" href="static/style/theme.css" />
+
+    
+
+    <!--Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=latin-ext" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+
+
+    <div class="wrapper">
+
+        <!-- ======================== Navigation ======================== -->
+
+        <nav>
+
+            <div class="container">
+
+                <a href="/index" class="logo"><img src="/static/img/images/llogo.png" alt=""/></a>
+
+                <!-- ==========  Top navigation ========== -->
+
+                <div class="navigation navigation-top clearfix">
+                    <ul>
+                        <!--add active class for current page-->
+                        <li class="left-side"><a href="/index" class="logo-icon"><img src="/static/img/images/llogo.png" alt="Alternate Text" width="150" height="34"/></a></li>
+                        {% if current_user.is_authenticated %}
+                            <li>
+                                <a class="open-login" href="/lich"><i class="icon icon-user"></i>{{ current_user.name }}</a>
+                                <div class="btn-group">
+                                    <div class="dropdown-menu"></div>
+                                    <button class="dropdown-item" type="button"><a href="/logout">Выйти</a></button>
+                                </div>
+                            </li>
+
+                        {% else %}
+                            <li><a href="/login" class="open-login"><i class="icon icon-user"></i></a></li>
+                        {% endif %}
+
+                        <li><a href="javascript:void(0);" class="open-search"><i class="icon icon-magnifier"></i></a></li>
+
+                    </ul>
+                </div>
+
+                <!-- ==========  Main navigation ========== -->
+
+                <div class="navigation navigation-main">
+                    <a href="/lich" class="open-login"><i class="icon icon-user"></i></a>
+                    <a href="#" class="open-search"><i class="icon icon-magnifier"></i></a>
+                    <a href="#" class="open-cart"><i class="icon icon-cart"></i> <span>4</span></a>
+                    <a href="#" class="open-menu"><i class="icon icon-menu"></i></a>
+                    <div class="floating-menu">
+                        <!--mobile toggle menu trigger-->
+                        <div class="close-menu-wrapper">
+                            <span class="close-menu"><i class="icon icon-cross"></i></span>
+                        </div>
+                        <ul>
+                            <li>
+                                <a href="/index">Главная <span class="open-dropdown"></span></a>
+                            </li>
+                            <li>
+                                <a href="#courses">Курсы <span class="open-dropdown"></span></a>
+                            
+                            </li>
+                            <li>
+                                <a href="/about">О нас<span class="open-dropdown"></span></a>
+                            <li>
+                                
+                            </li>
+                            
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- ==========  Search wrapper ========== -->
+
+                <div class="search-wrapper">
+                    <input class="form-control" placeholder="Найти" />
+                    <button class="btn btn-outline-dark btn-sm">Искать</button>
+                </div>
+
+
+                <!-- ==========  Cart wrapper ========== -->
+
+
+
+        </nav>
+
+        <!-- ========================  Header content ======================== -->
+
+        <section class="header-content">
+
+            <h2 class="d-none">Slider element</h2>
+
+            <div class="container-fluid">
+
+                <div class="owl-slider owl-carousel owl-theme" data-autoplay="true">
+
+                    <!--Slide item-->
+
+                    <div class="item d-flex align-items-center" style="background-image:url(/static/img/images/slide-1.jpg);">
+                        <div class="container">
+                            <div class="caption">
+                                <div class="animated" data-start="fadeInUp">
+                                    <div class="promo pt-3">
+                                        <div class="title title-sm p-0">Осенняя распродажа</div>
+                                    </div>
+                                </div>
+                                <div class="animated" data-start="fadeInUp">
+                                    Занимайтесь спортом и после лета!
+                                    <br />
+                                    Запишись на курсы сейчас!
+                                </div>
+                                <div class="animated" data-start="fadeInUp">
+                                    <div class="pt-3">
+                                        <a href="#" target="_blank" class="btn btn-outline-warning">Записаться</a>
+                                        <a href="/product" target="_blank" class="btn btn-outline-light"> Подробнее</a>
+                                    </div>
+                                </div>
+                                <div class="animated" data-start="fadeInUp">
+                                    <div class="promo pt-5">
+                                        <div class="h6 p-0 m-0">Особая цена!</div>
+                                        <div class="price">
+                                            <span>3990 Руб.</span>
+                                            <span>6990 Руб.</span>
+                                        </div>
+                                        <small class="d-none d-sm-block">** Скидка распространяется только на первую покупку</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Slide item-->
+
+                    <div class="item d-flex align-items-center" style="background-image:url(/static/img/images/main2.jpg);">
+                        <div class="container">
+                            <div class="caption">
+                                <div class="animated" data-start="fadeInUp">
+                                    <div class="big-text big-text-sm">
+                                        <span>Скидка </span>
+                                        <span>50%</span>
+                                        <span>по программе лояльности</span>
+
+                                        <div>
+                                            <a href="#" target="_blank" class="btn btn-info btn-block">Получить</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="animated" data-start="fadeInUp">
+                                    <div class="promo pt-5">
+                                        <div class="badge badge-secondary">Приводи друзей!</div>
+                                        <div class="h2 p-0 mt-1">Получай скидку на новый курс</div>
+                                    
+                                        <small class="d-none d-sm-block">** Скидка распростроняется только на новых пользователей </small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Slide item-->
+
+                    <div class="item d-flex align-items-center" style="background-image:url(/static/img/images/slide-3.jpg)">
+                        <div class="container">
+                            <div class="caption">
+                                <div class="promo text-center">
+                                    <div class="animated" data-start="fadeInUp">
+                                        <div class="title title-sm p-0">Октябрьский марафон</div>
+                                    </div>
+                                    <div class="animated" data-start="fadeInUp">
+                                        Набери 1000 баллов активности
+                                        <br />
+                                        И получи новый курс бесплатно!
+                                    </div>
+                                    <div class="animated" data-start="fadeInUp">
+                                        <a href="/product" target="_blank" class="btn btn-light">Начать</a>
+                                        <a href="#courses" target="_blank" class="btn btn-outline-light"> Подробнее</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div> <!--/owl-slider-->
+            </div>
+        </section>
+
+        
+
+        <!-- ========================  Popular products  ======================== -->
+
+        <section class="products">
+
+            <!--Header-->
+
+            <header>
+                <div class="container">
+                    <h2 class="title" id="courses">Популярные курсы</h2>
+                    <div class="text">
+                        <p>
+                            Найдите что-то для себя<a class="btn btn-main">Посмотреть все</a>
+                        </p>
+                    </div>
+                </div>
+            </header>
+
+            <!--Content-->
+
+            <div class="container">
+
+                <div class="row">
+
+                    <!--Product item-->
+
+                    <div class="col-6 col-lg-4">
+                        <article>
+                            <div class="info">
+                                <span class="add-favorite">
+                                    <a href="javascript:void(0);" data-title="Add to favorites" data-title-added="Added to favorites list">
+                                        <i class="icon icon-heart"></i>
+                                    </a>
+                                </span>
+                                
+                            </div>
+                            <div class="btn btn-add">
+                                <i class="icon icon-cart"></i>
+                            </div>
+                            <div class="figure-grid">
+                                <span class="badge badge-infoo">Для мужчин</span>
+                                <span class="badge badge-warning">-30%</span>
+                                <div class="image">
+                                    <a href="/product">
+                                        <img src="/static/img/images/plechi.jpg" alt="" />
+                                    </a>
+                                </div>
+                                <div class="text">
+                                    <h2 class="title h4">
+                                        <a href="product.html">Курс Плечевой пояс</a>
+                                    </h2>
+                                    <sub>6990 р.</sub>
+                                    <sup>4990 р.</sup>
+                                    <span class="description clearfix">
+                                        Gubergren amet dolor ea diam takimata consetetur facilisis blandit et aliquyam
+                                        lorem ea duo labore diam sit et consetetur nulla
+                                    </span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!--Product item-->
+
+                    <div class="col-6 col-lg-4">
+                        <article>
+                            <div class="info">
+                                <span class="add-favorite">
+                                    <a href="javascript:void(0);" data-title="Add to favorites" data-title-added="Added to favorites list">
+                                        <i class="icon icon-heart"></i>
+                                    </a>
+                                </span>
+                                
+                            </div>
+                            <div class="btn btn-add">
+                                <i class="icon icon-cart"></i>
+                            </div>
+                            <div class="figure-grid">
+                                <span class="badge badge-warning">-20%</span>
+                                <span class="badge badge-infoo">Для мужчин</span>
+                                <div class="image">
+                                    <a href="/product2">
+                                        <img src="/static/img/images/press.jpg" alt="" />
+                                    </a>
+                                    <div class="text">
+                                        <h2 class="title h4">
+                                            <a href="/product2">Курс Каменный пресс</a>
+                                        </h2>
+                                        <sub>6990 р.</sub>
+                                        <sup>5590 р.</sup>
+                                        <span class="description clearfix">
+                                            Gubergren amet dolor ea diam takimata consetetur facilisis blandit et aliquyam
+                                            lorem ea duo labore diam sit et consetetur nulla
+                                        </span>
+                                    </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!--Product item-->
+
+                    <div class="col-6 col-lg-4">
+                        <article>
+                            <div class="info">
+                                <span class="add-favorite">
+                                    <a href="javascript:void(0);" data-title="Add to favorites" data-title-added="Added to favorites list">
+                                        <i class="icon icon-heart"></i>
+                                    </a>
+                                </span>
+                                
+                            </div>
+                            <div class="btn btn-add">
+                                <i class="icon icon-cart"></i>
+                            </div>
+                            <div class="figure-grid">
+                                <span class="badge badge-info">Для мужчин</span>
+                                <div class="image">
+                                    <a href="/product3">
+                                        <img src="/static/img/images/rukim.jpg" alt="" />
+                                    </a>
+                                </div>
+                                <div class="text">
+                                    <h2 class="title h4">
+                                        <a href="/product3">Курс Здоровая спина</a>
+                                    </h2>
+                                    <sup>3990 р.</sup>
+                                    <span class="description clearfix">
+                                        Gubergren amet dolor ea diam takimata consetetur facilisis blandit et aliquyam
+                                        lorem ea duo labore diam sit et consetetur nulla
+                                    </span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!--Product item-->
+
+                    <div class="col-6 col-lg-4">
+                        <article>
+                            <div class="info">
+                                <span class="add-favorite">
+                                    <a href="javascript:void(0);" data-title="Add to favorites" data-title-added="Added to favorites list">
+                                        <i class="icon icon-heart"></i>
+                                    </a>
+                                </span>
+                                
+                            </div>
+                            <div class="btn btn-add">
+                                <i class="icon icon-cart"></i>
+                            </div>
+                            <div class="figure-grid">
+                                <span class="badge badge-info">Для мужчин</span>
+                                <div class="image">
+                                    <a href="product.html">
+                                        <img src="/static/img/images/rukim2.jpg" alt="" />
+                                    </a>
+                                </div>
+                                <div class="text">
+                                    <h2 class="title h4">
+                                        <a href="product.html">Курс Нагрузка на руки</a>
+                                    </h2>
+                                    <sup>6990 р.</sup>
+                                    <span class="description clearfix">
+                                        Gubergren amet dolor ea diam takimata consetetur facilisis blandit et aliquyam
+                                        lorem ea duo labore diam sit et consetetur nulla
+                                    </span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!--Product item-->
+
+                    <div class="col-6 col-lg-4">
+                        <article>
+                            <div class="info">
+                                <span class="add-favorite">
+                                    <a href="javascript:void(0);" data-title="Add to favorites" data-title-added="Added to favorites list">
+                                        <i class="icon icon-heart"></i>
+                                    </a>
+                                </span>
+                                
+                            </div>
+                            <div class="btn btn-add">
+                                <i class="icon icon-cart"></i>
+                            </div>
+                            <div class="figure-grid">
+                                <span class="badge badge-info">Для мужчин</span>
+                                <div class="image">
+                                    <a href="product.html">
+                                        <img src="/static/img/images/nogim.jpg" alt="" />
+                                    </a>
+                                </div>
+                                <div class="text">
+                                    <h2 class="title h4">
+                                        <a href="product.html">Курс Нагрузка на ноги</a>
+                                    </h2>
+                                    <sup>4490 р.</sup>
+                                    <span class="description clearfix">
+                                        Gubergren amet dolor ea diam takimata consetetur facilisis blandit et aliquyam
+                                        lorem ea duo labore diam sit et consetetur nulla
+                                    </span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!--Product item-->
+
+                    <div class="col-6 col-lg-4">
+                        <article>
+                            <div class="info">
+                                <span class="add-favorite">
+                                    <a href="javascript:void(0);" data-title="Add to favorites" data-title-added="Added to favorites list">
+                                        <i class="icon icon-heart"></i>
+                                    </a>
+                                </span>
+                               
+                            </div>
+                            <div class="btn btn-add">
+                                <i class="icon icon-cart"></i>
+                            </div>
+                            <div class="figure-grid">
+                                <span class="badge badge-info2">Для женщин</span>
+                                <div class="image">
+                                    <a href="product.html">
+                                        <img src="/static/img/images/ruki.jpg" alt="" />
+                                    </a>
+                                </div>
+                                <div class="text">
+                                    <h2 class="title h4">
+                                        <a href="product.html">Курс сильные руки</a>
+                                    </h2>
+                                    <sup>3990 р.</sup>
+                                    <span class="description clearfix">
+                                        Gubergren amet dolor ea diam takimata consetetur facilisis blandit et aliquyam
+                                        lorem ea duo labore diam sit et consetetur nulla
+                                    </span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-6 col-lg-4">
+                        <article>
+                            <div class="info">
+                                <span class="add-favorite">
+                                    <a href="javascript:void(0);" data-title="Add to favorites" data-title-added="Added to favorites list">
+                                        <i class="icon icon-heart"></i>
+                                    </a>
+                                </span>
+                                
+                            </div>
+                            <div class="btn btn-add">
+                                <i class="icon icon-cart"></i>
+                            </div>
+                            <div class="figure-grid">
+                                <span class="badge badge-info2">Для женщин</span>
+                                <div class="image">
+                                    <a href="product.html">
+                                        <img src="/static/img/images/bedra.jpg" alt="" />
+                                    </a>
+                                </div>
+                                <div class="text">
+                                    <h2 class="title h4">
+                                        <a href="product.html">Курс стройные бёдра</a>
+                                    </h2>
+                                    <sup>2990 р.</sup>
+                                    <span class="description clearfix">
+                                        Gubergren amet dolor ea diam takimata consetetur facilisis blandit et aliquyam
+                                        lorem ea duo labore diam sit et consetetur nulla
+                                    </span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-6 col-lg-4">
+                        <article>
+                            <div class="info">
+                                <span class="add-favorite">
+                                    <a href="javascript:void(0);" data-title="Add to favorites" data-title-added="Added to favorites list">
+                                        <i class="icon icon-heart"></i>
+                                    </a>
+                                </span>
+                                
+                            </div>
+                            <div class="btn btn-add">
+                                <i class="icon icon-cart"></i>
+                            </div>
+                            <div class="figure-grid">
+                                <span class="badge badge-info2">Для женщин</span>
+                                <div class="image">
+                                    <a href="product.html">
+                                        <img src="/static/img/images/pohud.jpg" alt="" />
+                                    </a>
+                                </div>
+                                <div class="text">
+                                    <h2 class="title h4">
+                                        <a href="product.html">Курс для похудения</a>
+                                    </h2>
+                                    <sup>2490 р.</sup>
+                                    <span class="description clearfix">
+                                        Gubergren amet dolor ea diam takimata consetetur facilisis blandit et aliquyam
+                                        lorem ea duo labore diam sit et consetetur nulla
+                                    </span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-6 col-lg-4">
+                        <article>
+                            <div class="info">
+                                <span class="add-favorite">
+                                    <a href="javascript:void(0);" data-title="Add to favorites" data-title-added="Added to favorites list">
+                                        <i class="icon icon-heart"></i>
+                                    </a>
+                                </span>
+                               
+                            </div>
+                            <div class="btn btn-add">
+                                <i class="icon icon-cart"></i>
+                            </div>
+                            <div class="figure-grid">
+                                <span class="badge badge-info3">Для всех</span>
+                                <div class="image">
+                                    <a href="product.html">
+                                        <img src="/static/img/images/joga.jpg" alt="" />
+                                    </a>
+                                </div>
+                                <div class="text">
+                                    <h2 class="title h4">
+                                        <a href="product.html">Курс по йоге</a>
+                                    </h2>
+                                    <sup>1990 р.</sup>
+                                    <span class="description clearfix">
+                                        Gubergren amet dolor ea diam takimata consetetur facilisis blandit et aliquyam
+                                        lorem ea duo labore diam sit et consetetur nulla
+                                    </span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+
+
+
+                </div> <!--/row-->
+
+            </div>
+
+        </section>
+
+        <!-- ========================  Product popup ======================== -->
+
+        <div class="popup-main mfp-hide" id="productid1">
+
+            <!--Product popup-->
+
+            <div class="product">
+
+                <!--Popup-title -->
+
+                <div class="popup-title">
+                    <div class="h3 title">
+                        Название курса
+                        <small>Категория курса</small>
+                    </div>
+                </div>
+
+                <!--Product gallery-->
+
+                <div class="owl-product-gallery owl-theme owl-carousel">
+                    <img src="/static/img/images/item-1.jpg" alt="" width="640" />
+                    <img src="/static/img/images/item-2.jpg" alt="" width="640" />
+                </div>
+
+                <!--Popup info-->
+
+                <div class="popup-content">
+                    <div class="product-info-wrapper">
+                        <div class="row">
+
+                            <!--Left side-->
+
+                            <div class="col-sm-6">
+                                <div class="info-box">
+                                    <strong>Тренера</strong>
+                                    <span>Имя тренера</span>
+                                </div>
+                                <div class="info-box">
+                                    <strong>Уроков</strong>
+                                    <span>17</span>
+                                </div>
+                                
+                            </div>
+
+                            <!--Right side-->
+
+                           <!-- <div class="col-sm-6">
+                                <div class="info-box">
+                                    <strong>Available Colors</strong>
+                                    <div class="product-colors clearfix">
+                                        <span class="color-btn color-btn-red"></span>
+                                        <span class="color-btn color-btn-blue checked"></span>
+                                        <span class="color-btn color-btn-green"></span>
+                                        <span class="color-btn color-btn-gray"></span>
+                                        <span class="color-btn color-btn-biege"></span>
+                                    </div>
+                                </div>
+                                <div class="info-box">
+                                    <strong>Choose size</strong>
+                                    <div class="product-colors clearfix">
+                                        <span class="color-btn color-btn-biege">S</span>
+                                        <span class="color-btn color-btn-biege checked">M</span>
+                                        <span class="color-btn color-btn-biege">XL</span>
+                                        <span class="color-btn color-btn-biege">XXL</span>
+                                    </div>
+                                </div>
+                            </div>
+-->
+                        </div> <!--/row-->
+                    </div> <!--/product-info-wrapper-->
+                </div> <!--/popup-content-->
+
+                <div class="popup-table">
+                    <div class="popup-cell">
+                        <div class="price">
+                            <span class="h3">$ 1999,00 <small>$ 2999,00</small></span>
+                        </div>
+                    </div>
+                    <div class="popup-cell">
+                        <div class="popup-buttons">
+                            <a href="product.html"><span class="icon icon-eye"></span> <span class="hidden-xs">Подробнее</span></a>
+                            <a href="javascript:void(0);"><span class="icon icon-cart"></span> <span class="hidden-xs">В корзину</span></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div> <!--/product-->
+        </div>
+
+        <!-- ========================  Cards ======================== -->
+
+
+       
+
+        <!-- ========================  Newsletter ======================== -->
+
+        <section class="banner">
+
+            <div class="container-fluid">
+
+                <div class="banner-image" style="background-image:url(/static/img/images/123.png)">
+                    <!--Header-->
+
+                    <header>
+                        <div class="container">
+
+                            <h2 class="h2 title">Не пропусти новые курсы</h2>
+                            <div class="text">
+                                <p>Подпишись на нашу рассылку чтобы не пропускать новые курсы</p>
+                            </div>
+
+                        </div>
+                    </header>
+
+                    <!--Content-->
+
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-md-4">
+                                <input type="email" class="form-control" name="name" value="" placeholder="Ваш e-mail">
+                            </div>
+                            <div class="col-md-4">
+                                <a href="#" class="btn btn-clean">Подписаться!</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div> <!--/container-fluid-->
+
+        </section>
+
+        
+
+        <!-- ========================  Benefits ======================== -->
+
+        <section class="benefits">
+
+            <!--Header-->
+
+            <header class="d-none">
+                <div class="container">
+                    <h2 class="h2 title">Benefits</h2>
+                </div>
+            </header>
+
+            <!--Header-->
+
+            <div class="container">
+
+                <div class="row">
+
+                    <!--Icon-->
+
+                    <div class="col-6 col-lg-3" data-tilt>
+                        <figure>
+                            <div class="icon"><i class="icon icon-gift"></i></div>
+                            <figcaption>
+                                <span>
+                                    <strong>Подарки для новых пользователей!</strong> <br />
+                                    <small>Пригласи друзей и получи скидку</small>
+                                </span>
+                            </figcaption>
+                        </figure>
+                    </div>
+
+                    <!--Icon-->
+
+                    <div class="col-6 col-lg-3" data-tilt>
+                        <figure>
+                            <div class="icon"><i class="icon icon-rocket"></i></div>
+                            <figcaption>
+                                <span>
+                                    <strong>Быстрый прогресс</strong> <br />
+                                    <small>Ты увидишь результат уже через неделю!</small>
+                                </span>
+                            </figcaption>
+                        </figure>
+                    </div>
+
+                    <!--Icon-->
+
+                    <div class="col-6 col-lg-3" data-tilt>
+                        <figure>
+                            <div class="icon"><i class="icon icon-history"></i></div>
+                            <figcaption>
+                                <span>
+                                    <strong>Возврат денег гарантирован</strong> <br />
+                                    <small>Вернем деньги если не понравился курс</small>
+                                </span>
+                            </figcaption>
+                        </figure>
+                    </div>
+
+                    <!--Icon-->
+
+                    <div class="col-6 col-lg-3" data-tilt>
+                        <figure>
+                            <div class="icon"><i class="icon icon-diamond"></i></div>
+                            <figcaption>
+                                <span>
+                                    <strong>Профессиональные тренера</strong> <br />
+                                    <small>Никакой самодеятельности, только квалифицированные сотрудники</small>
+                                </span>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div> <!--/row-->
+
+            </div> <!--/container-->
+
+        </section>
+
+
+        <!-- ================== Footer  ================== -->
+
+        <footer>
+
+            <div class="container-fluid">
+
+                <div class="footer-wrap">
+
+                    <div class="container">
+
+                        <!--footer showroom-->
+                        <div class="footer-showroom">
+                            <div class="text-center">
+                                <a href="/"><img src="/static/img/images/llogo.png" alt="" width=125px height=30px /></a>
+                            </div>
+                        </div>
+
+                        <!--footer links-->
+                        <div class="footer-links">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <h5>Направления</h5>
+                                    <ul>
+                                        <li><a href="#">Стретч</a></li>
+                                        <li><a href="#">Функционал</a></li>
+                                        <li><a href="#">Силовые</a></li>
+                                        <li><a href="#">Йога</a></li>
+                                        <li><a href="#">Танцы</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-2">
+                                    <h5>Быстрые ссылки</h5>
+                                    <ul>
+                                        <li><a href="#">История покупок</a></li>
+                                        <li><a href="#">Подарочные карты</a></li>
+                                        <li><a href="#">Возврат средств</a></li>
+                                        <li><a href="#">Магазин</a></li>
+                                        <li><a href="#">FAQ</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-2">
+                                    <h5>О нас</h5>
+                                    <ul>
+                                        <li><a href="#">Тренерский состав</a></li>
+                                        <li><a href="#">Платежная информация</a></li>
+                                        <li><a href="#">Юридическая информация</a></li>
+                                    </ul>
+                                </div>
+                                <div class="offset-md-3 col-md-3">
+                                    <h5>Подпишись для получения свежей информации</h5>
+                                    <p><i>Напиши свой адрес электронной почты чтобы получать свежие новости и скидки на новые курсы</i></p>
+                                    <div class="form-group form-newsletter">
+                                        <input class="form-control" type="text" name="email" value="" placeholder="E-mail" />
+                                        <input type="submit" class="btn btn-secondary btn-sm" value="Подписаться" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--footer social-->
+
+                        <div class="footer-social">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <a href="#">Политика конфиденциальности</a>
+                                </div>
+                                <div class="col-sm-6 links">
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </footer>
+
+
+    </div> <!--/wrapper-->
+    
+    <!--Scripts -->
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/js/bootstrap.js"></script>
+    <script src="static/js/ion.rangeSlider.js"></script>
+    <script src="static/js/magnific-popup.js"></script>
+    <script src="static/js/owl.carousel.js"></script>
+    <script src="static/js/tilt.jquery.js"></script>
+    <script src="static/js/jquery.easypiechart.js"></script>
+    <script src="static/js/bigtext.js"></script>
+    <script src="static/js/main.js"></script>
+</body>
+
+</html>
